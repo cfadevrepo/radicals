@@ -1,6 +1,6 @@
 # Radicals
 
-## THIS IS NO LONGER THE MAIN REPO --> cfadevrepo/radicals
+## THIS IS THE NEW MAIN REPO 
 
 ### Last Working Environment (Jessica Ng, 8/16/19)
 
