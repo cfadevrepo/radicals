@@ -20,6 +20,8 @@ public class SimpleDrawingView extends View {
     // stores next circle
     private Path path = new Path();
 
+    boolean mode;
+
     private Float firstx, firsty, lastx, lasty;
 
 
@@ -35,6 +37,10 @@ public class SimpleDrawingView extends View {
         setFocusable(true);
         setFocusableInTouchMode(true);
         setupPaint();
+    }
+
+    public void setEnabled(boolean mode) {
+        this.mode = mode;
     }
 
     private void setupPaint() {
@@ -67,6 +73,11 @@ public class SimpleDrawingView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        if (!mode) {
+            return false;
+        }
+
         float pointX = event.getX();
         float pointY = event.getY();
         // Checks for the event that occurs

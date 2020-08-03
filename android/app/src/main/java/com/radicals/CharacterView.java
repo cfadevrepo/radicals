@@ -304,7 +304,7 @@ public CharacterView(Context context) {
                 "          from {\n" +
                 "            stroke: ";
             if (i == currentstrokeindex) {
-                s = s + "red;\n";
+                s = s + "black;\n";
             } else {
                 s = s + "blue;\n";
             }
@@ -315,7 +315,7 @@ public CharacterView(Context context) {
                 "            animation-timing-function: step-end;\n" +
                 "            stroke: ";
             if (i == currentstrokeindex) {
-                s = s + "red;\n";
+                s = s + "black;\n";
             } else {
                 s = s + "blue;\n";
             }
@@ -391,7 +391,9 @@ public CharacterView(Context context) {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
         if  (!mode) {
+            Log.d("cv", "returned without motionevent ");
             return false;
+            // moves to child
         }
 
         if (ev.getAction() == MotionEvent.ACTION_UP) {

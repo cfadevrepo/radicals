@@ -262,7 +262,7 @@ class Learn extends Component {
           <CharacterView
           style={styles.wordView}
           data={get_svg()}
-          quiz={true}
+          quiz={false}
           />
 
       </View>
