@@ -2,25 +2,29 @@
 
 ## THIS IS THE NEW MAIN REPO 
 
-### Last Working Environment (Jessica Ng, 8/16/19)
+[iOS version on App Store](https://apps.apple.com/us/app/chinese-radicals-%E4%B8%AD%E6%96%87%E9%83%A8%E9%A6%96/id1102982148)
 
-Installed and set up dependencies using React Native's [Getting Started guide](https://facebook.github.io/react-native/docs/getting-started.html) for macOS, target iOS.
+### Last Working Environment (Jessica Ng, 8/9/20)
 
-Originally Downloaded XCode 9.2 directly from https://developer.apple.com/download/more/ instead of App Store because App Store wasn’t updating XCode properly. (latest version that works with my OS and that watchman requires) Ultimately updated to macOS 10.13 and Xcode 9.4.
+Installed and set up dependencies using React Native's ~~[Getting Started guide](https://facebook.github.io/react-native/docs/getting-started.html)~~[Environment Setup](https://reactnative.dev/docs/environment-setup) for macOS, target iOS and Android.
 
-- macOS: High Sierra (10.13.6) on MacBook Air
-- Xcode: v9.4
-- node: v10.16.0
-- npm: v6.9.0
-- npx: v6.9.0
+iOS is working for **master** branch. 
+Android is working **removing_RNCView_dependency** branch. 
+
+- Mac mini (late 2012) running MacOS Mojave 10.14.6 
+- XCode: 10.3
+- Android Studio: 4.0
+- node: 12.8.0
+- npm: 6.10.2
+- npx: 6.10.2
+- yarn: 1.22.4
+- react-native: 0.63.1
+```$ npm view react-native version```
 - react-native-cli: 2.0.1
-- react-native: 0.57.1
+```$ npm view react-native-cli version```
 
-Was able to run using `react-native run-ios` in `Radicals` folder or running from Xcode. (Changes to deck data may require the app to reinstalled in Simulator).
 
-Was able to run on iPhone 5S using React Native's [Running on Device guide](https://facebook.github.io/react-native/docs/running-on-device#running-your-app-on-ios-devices) for iOS on macOS, but did not got through setting it up for production.
-
-Note: Had to change bundle ID in the Xcode project to run for my own personal Apple developer account, as I did not have access to the one we are using for production. Please change back before setting up for production. (See Radicals (in file selector of Xcode) > Targets > Radicals).  
+Was able to run from Xcode and Android Studio.
 
 ### Getting Started
 
@@ -28,16 +32,18 @@ If you haven't already, install [Xcode](https://developer.apple.com/xcode/), [No
 
 Then clone this repo and install the dependencies:
 
-```bash
-git clone git@github.com:nycoliver/Radicals.git
+```
+git clone https://github.com/cfadevrepo/radicals.git
 cd Radicals
 yarn
 ```
+Start the node server: 
+`npx react-native start`
 
-Run the app:
+#### Running iOS:
 
-```bash
-yarn run ios
-```
+Open `ios/Radicals.xcodeproj/` and run from Xcode.
 
-or open `ios/Radicals.xcodeproj/` and run from Xcode.
+#### Running Android:
+
+Open the `android` folder in Android Studio. Set up an AVD. Wait for files to be indexed and run. 
