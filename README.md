@@ -30,13 +30,18 @@ Was able to run from Xcode and Android Studio.
 
 If you haven't already, install [Xcode](https://developer.apple.com/xcode/), [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/).
 
-Then clone this repo and install the dependencies:
+Clone this repo and install the dependencies on the correct branch:
 
 ```
 git clone https://github.com/cfadevrepo/radicals.git
 cd Radicals
-yarn
 ```
+
+If running Android, switch branches to `removing_RNCView_dependency`. 
+
+Install dependencies: 
+`yarn`
+
 Start the node server: 
 `npx react-native start`
 
@@ -46,4 +51,4 @@ Open `ios/Radicals.xcodeproj/` and run from Xcode on the master branch.
 
 #### Running Android:
 
-Switch branches to `removing_RNCView_dependency`. Open the `android` folder in Android Studio. Set up an AVD. Wait for files to be indexed and run. 
+Open the `android` folder in Android Studio. Set up an AVD. Wait for files to be indexed and run. 
