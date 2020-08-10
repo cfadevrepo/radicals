@@ -6,7 +6,7 @@
 
 ### Last Working Environment (Jessica Ng, 8/9/20)
 
-Installed and set up dependencies using React Native's ~~[Getting Started guide](https://facebook.github.io/react-native/docs/getting-started.html)~~[Environment Setup](https://reactnative.dev/docs/environment-setup) for macOS, target iOS and Android.
+Installed and set up dependencies using React Native's [Environment Setup](https://reactnative.dev/docs/environment-setup) for macOS, target iOS and Android.
 
 iOS is working for **master** branch. 
 Android is working **removing_RNCView_dependency** branch. 
