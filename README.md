@@ -40,10 +40,10 @@ cd Radicals
 If running Android, switch branches to `removing_RNCView_dependency`. 
 
 Install dependencies: 
-`yarn`
+```yarn```
 
 Start the node server: 
-`npx react-native start`
+```npx react-native start```
 
 #### Running iOS:
 
