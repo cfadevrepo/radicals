@@ -42,8 +42,8 @@ Start the node server:
 
 #### Running iOS:
 
-Open `ios/Radicals.xcodeproj/` and run from Xcode.
+Open `ios/Radicals.xcodeproj/` and run from Xcode on the master branch.
 
 #### Running Android:
 
-Open the `android` folder in Android Studio. Set up an AVD. Wait for files to be indexed and run. 
+Switch branches to `removing_RNCView_dependency`. Open the `android` folder in Android Studio. Set up an AVD. Wait for files to be indexed and run. 
