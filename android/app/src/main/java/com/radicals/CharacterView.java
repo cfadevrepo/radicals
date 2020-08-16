@@ -202,6 +202,10 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
         myWebView.loadDataWithBaseURL(null, this.data, "text/html", "utf-8", null);
     }
 
+    public void clear() {
+        myWebView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+    }
+
     private void init(Context context) {
         Log.d("cv","init");
 

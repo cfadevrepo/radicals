@@ -53,8 +53,9 @@ public class CharacterViewManager extends ViewGroupManager<CharacterView> {
     // SVG strokes and median data; used for quiz mode
     @ReactProp(name="points")
     public void setCharacterViewPoints(CharacterView cv, String points) {
-        Log.d("cvmanager", "setdatacalled");
+        Log.d("cvmanager", "setpointscalled");
         cv.setPoints(points);
+        cv.clear(); // EDIT: temp workaround?
     }
 
     // set quiz mode
