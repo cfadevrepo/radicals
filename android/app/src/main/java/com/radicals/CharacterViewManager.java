@@ -17,16 +17,6 @@ public class CharacterViewManager extends ViewGroupManager<CharacterView> {
 
     public static final String REACT_CLASS = "CharacterView";
 
-
-    @Override
-    public @Nullable Map getExportedCustomDirectEventTypeConstants() {
-        Log.d("cv","bubble called");
-        return MapBuilder.of(
-                "onEnd",
-                MapBuilder.of("registrationName", "onEnd")
-        );
-    }
-
     @Override
     public String getName() {
         return REACT_CLASS;
@@ -38,18 +28,36 @@ public class CharacterViewManager extends ViewGroupManager<CharacterView> {
         return cv;
     }
 
+
+    // Android to JS function
+    // called by dispatchOnEnd() in CharacterView.java
+    @Override
+    public @Nullable Map getExportedCustomDirectEventTypeConstants() {
+        Log.d("cv","onEnd called");
+        return MapBuilder.of(
+                "onEnd",
+                MapBuilder.of("registrationName", "onEnd")
+        );
+    }
+
+
+    // PROPS
+
+    // SVG code; used for non-quiz mode
     @ReactProp(name="data")
     public void setCharacterViewData(CharacterView cv, String data) {
         Log.d("cvmanager", "setdatacalled");
         cv.setData(data);
     }
 
+    // SVG strokes and median data; used for quiz mode
     @ReactProp(name="points")
     public void setCharacterViewPoints(CharacterView cv, String points) {
         Log.d("cvmanager", "setdatacalled");
         cv.setPoints(points);
     }
 
+    // set quiz mode
     @ReactProp(name="quiz")
     public void setCharacterViewMode(CharacterView cv, Boolean mode) {
         cv.setQuiz(mode);
