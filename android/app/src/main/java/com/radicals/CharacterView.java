@@ -32,6 +32,7 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
     private WebView myWebView;
     private SimpleDrawingView sdv;
     private Boolean mode = false;
+    private Boolean madeError = false;
 
     // temporary default data if/when points data is not passed through
     private String points = "{\"strokes\":[\"M 670 645 Q 763 655 907 643 Q 932 640 938 649 Q 947 662 934 675 Q 903 703 857 724 Q 842 731 815 722 Q 752 707 555 683 Q 444 674 315 654 Q 248 644 145 642 Q 130 642 129 630 Q 129 617 148 602 Q 187 572 237 584 Q 294 600 344 606 L 396 616 Q 481 631 616 640 L 670 645 Z\",\"M 344 606 Q 371 558 360 393 Q 359 387 359 379 Q 344 204 204 76 Q 189 63 186 56 Q 185 49 196 50 Q 235 50 305 123 Q 383 207 403 338 Q 419 420 424 544 Q 428 565 429 576 Q 436 597 415 607 Q 405 613 396 616 L 344 606 Z\",\"M 616 640 Q 646 579 628 257 Q 621 146 614 119 Q 596 65 660 1 Q 661 0 664 -3 Q 677 -4 682 11 Q 695 47 691 80 Q 672 512 687 616 Q 687 626 670 645 L 616 640 Z\"],\"medians\":[[[142,629],[180,615],[212,612],[464,651],[833,687],[890,674],[925,659]],[[351,605],[392,576],[389,418],[367,286],[334,203],[303,154],[245,91],[193,57]],[[623,640],[656,610],[657,232],[650,96],[668,5]]]}";
@@ -149,11 +150,13 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
 
     // called when in quiz mode, question is answered
     // passes to JS to allow for next question button to appear
-    // https://gist.github.com/bramus/1536b9ec32dc9a02e417ff63e2a2e4ce#file-events-ui-md
+    // https://gist.github.com/bramus/1536b9ec32dc9a02e417ff63e2a2e4ce#android
     private void dispatchOnEnd() {
         Log.d("cv", "receivenativeevent called");
         WritableMap event = Arguments.createMap();
 
+        // EDIT: to pass numMistakes/madeError?
+//        event.putString("message", "MyMessage");
         ReactContext reactContext = (ReactContext)getContext();
 
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
@@ -212,39 +215,16 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
 
     }
 
+    // returns SVG of character up to current stroke;
     public String drawChara() {
+        return drawChara("black");
+    }
+    public String drawChara(String color) {
         String s = "";
         s = s +  " <svg version=\"1.1\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "  <g transform=\"scale(1, -1) translate(0, -900)\">\n" +
             "    <style type=\"text/css\">\n" +
             "\n";
-
-//        for (int i = 0; i < currentstrokeindex; i++) {
-//            s = s + "        @keyframes keyframes" + i + " {\n" +
-//                "          from {\n" +
-//                "            stroke: blue;\n" +
-//                "            stroke-dashoffset: 1051;\n" +
-//                "            stroke-width: 128;\n" +
-//                "          }\n" +
-//                "          77% {\n" +
-//                "            animation-timing-function: step-end;\n" +
-//                "            stroke: blue;\n" +
-//                "            stroke-dashoffset: 0;\n" +
-//                "            stroke-width: 128;\n" +
-//                "          }\n" +
-//                "          to {\n" +
-//                "            stroke: black;\n" +
-//                "            stroke-width: 1024;\n" +
-//                "          }\n" +
-//                "        }\n" +
-//                "        #make-me-a-hanzi-animation-" + i + " {\n" +
-//                "          animation: keyframes" + i +" 1.1053059895833333s both;\n" +
-//                "          animation-delay: " + i + "s;\n" +
-//                "          animation-timing-function: linear;\n" +
-//                "        }\n" +
-//                "\n";
-//        }
-
 
         s = s + "    </style>\n" +
             "\n";
@@ -254,7 +234,7 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
                 s = s + "<path d=\"" +
                     object.getJSONArray("strokes").getString(i)
 //                    + "\" fill=\"lightgray\"></path>\"";
-                    + "\" fill=\"black\">";
+                    + "\" fill=\"" + color + "\">";
                 if (i == currentstrokeindex) {
                     s = s + "<animate id=\"animation1\"\n" +
                         "             attributeName=\"opacity\"\n" +
@@ -267,28 +247,6 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
             }
         }
 
-//        for (int i = 0; i < currentstrokeindex; i++) {
-//            try {
-//                s = s + "      <clipPath id=\"make-me-a-hanzi-clip-"+ i + "\">\n"
-//                    + "       <path d=\""
-//                    + object.getJSONArray("strokes").getString(i)
-//                    + "\"></path>\n"
-//                    + "      </clipPath>\n"
-//                    + "\n" + "      <path clip-path=\"url(#make-me-a-hanzi-clip-" + i + ")\" d=\"";
-//                for (int j = 0; j < medians.getJSONArray(i).length(); j++) {
-//                    if (j == 0) {
-//                        s = s + "M " + medians.getJSONArray(i).getJSONArray(j).getInt(0) + " "
-//                            + medians.getJSONArray(i).getJSONArray(j).getInt(1);
-//                    } else {
-//                        s = s + " L " + medians.getJSONArray(i).getJSONArray(j).getInt(0) + " "
-//                            + medians.getJSONArray(i).getJSONArray(j).getInt(1);
-//                    }
-//                }
-//                s = s + "\" fill=\"none\" id=\"make-me-a-hanzi-animation-" + i +"\" stroke-dasharray=\"780 1560\" stroke-linecap=\"round\"></path>\n";
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//        }
 
         s = s + "\n" +
             "  </g>\n" +
@@ -297,6 +255,7 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
         return s;
     }
 
+    // returns SVG of character up to current stroke; with current stroke animated
     public String drawHint() {
         String s = "";
         s = s +  " <svg version=\"1.1\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
@@ -407,17 +366,30 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
             if (isCorrect()) {
                 currentstrokeindex = currentstrokeindex + 1;
                 Log.d("cv", "correct");
-//                Log.d("cv", drawChara());
-                myWebView.loadDataWithBaseURL(null, drawChara(), "text/html", "utf-8", null);
+
                 if (numstrokes == currentstrokeindex) {
+                    if (madeError) {
+                        myWebView.loadDataWithBaseURL(null, drawChara("red"), "text/html", "utf-8", null);
+                    } else {
+                        myWebView.loadDataWithBaseURL(null, drawChara("green"), "text/html", "utf-8", null);
+                    }
+
+                    // reset vars
+                    madeError = false;
                     currentstrokeindex = 0;
-                    // send on finishing current character
+
+                    // send on finishing current character to alert JS to allow next question
                     dispatchOnEnd();
+
+
+                } else {
+                    myWebView.loadDataWithBaseURL(null, drawChara(), "text/html", "utf-8", null);
                 }
 
             } else {
                 Log.d("cv", "incorrect");
                 Log.d("cv", String.valueOf(currentstrokeindex));
+                madeError = true;
                 myWebView.loadDataWithBaseURL(null, drawHint(), "text/html", "utf-8", null);
 
 //                Log.d("cv", drawHint());
