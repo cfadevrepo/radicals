@@ -33,6 +33,7 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
     private SimpleDrawingView sdv;
     private Boolean mode = false;
     private Integer totalMistakes = 0;
+    private Integer numTries = 0; // attempts for current strokes
 
     // temporary default data if/when points data is not passed through
     private String points = "{\"strokes\":[\"M 670 645 Q 763 655 907 643 Q 932 640 938 649 Q 947 662 934 675 Q 903 703 857 724 Q 842 731 815 722 Q 752 707 555 683 Q 444 674 315 654 Q 248 644 145 642 Q 130 642 129 630 Q 129 617 148 602 Q 187 572 237 584 Q 294 600 344 606 L 396 616 Q 481 631 616 640 L 670 645 Z\",\"M 344 606 Q 371 558 360 393 Q 359 387 359 379 Q 344 204 204 76 Q 189 63 186 56 Q 185 49 196 50 Q 235 50 305 123 Q 383 207 403 338 Q 419 420 424 544 Q 428 565 429 576 Q 436 597 415 607 Q 405 613 396 616 L 344 606 Z\",\"M 616 640 Q 646 579 628 257 Q 621 146 614 119 Q 596 65 660 1 Q 661 0 664 -3 Q 677 -4 682 11 Q 695 47 691 80 Q 672 512 687 616 Q 687 626 670 645 L 616 640 Z\"],\"medians\":[[[142,629],[180,615],[212,612],[464,651],[833,687],[890,674],[925,659]],[[351,605],[392,576],[389,418],[367,286],[334,203],[303,154],[245,91],[193,57]],[[623,640],[656,610],[657,232],[650,96],[668,5]]]}";
@@ -155,8 +156,6 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
         Log.d("cv", "receivenativeevent called");
         WritableMap event = Arguments.createMap();
 
-        // EDIT: to pass numMistakes/madeError?
-//        event.putString("message", "MyMessage");
         event.putInt("totalMistakes", totalMistakes);
         ReactContext reactContext = (ReactContext)getContext();
 
@@ -370,6 +369,7 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
 
             if (isCorrect()) {
                 currentstrokeindex = currentstrokeindex + 1;
+                numTries = 0;
                 Log.d("cv", "correct");
 
                 if (numstrokes == currentstrokeindex) {
@@ -395,8 +395,10 @@ public class CharacterView extends /*ViewGroup*/RelativeLayout {
                 Log.d("cv", "incorrect");
                 Log.d("cv", String.valueOf(currentstrokeindex));
                 totalMistakes = 1;
-                myWebView.loadDataWithBaseURL(null, drawHint(), "text/html", "utf-8", null);
-
+                numTries = numTries + 1;
+                if (numTries >= 3) {
+                    myWebView.loadDataWithBaseURL(null, drawHint(), "text/html", "utf-8", null);
+                }
 //                Log.d("cv", drawHint());
 
             }
