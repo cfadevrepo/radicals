@@ -19,11 +19,28 @@ public class SimpleDrawingView extends View {
     private Paint drawPaint;
     // stores next circle
     private Path path = new Path();
-
-    boolean mode;
-
+    // quiz mode; if false, does not accept input
+    private boolean mode;
     private Float firstx, firsty, lastx, lasty;
 
+    //
+    // Private functions
+    //
+
+    private void setupPaint() {
+        // Setup paint with color and stroke styles
+        drawPaint = new Paint();
+        drawPaint.setColor(paintColor);
+        drawPaint.setAntiAlias(true);
+        drawPaint.setStrokeWidth(10);
+        drawPaint.setStyle(Paint.Style.STROKE);
+        drawPaint.setStrokeJoin(Paint.Join.ROUND);
+        drawPaint.setStrokeCap(Paint.Cap.ROUND);
+    }
+
+    //
+    // Constructors
+    //
 
     public SimpleDrawingView(Context context) {
         super(context);
@@ -39,21 +56,13 @@ public class SimpleDrawingView extends View {
         setupPaint();
     }
 
+    //
+    // Public functions
+    //
+
     public void setEnabled(boolean mode) {
         this.mode = mode;
     }
-
-    private void setupPaint() {
-        // Setup paint with color and stroke styles
-        drawPaint = new Paint();
-        drawPaint.setColor(paintColor);
-        drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(10);
-        drawPaint.setStyle(Paint.Style.STROKE);
-        drawPaint.setStrokeJoin(Paint.Join.ROUND);
-        drawPaint.setStrokeCap(Paint.Cap.ROUND);
-    }
-
 
     public void clear() {
         Log.d("sdv","clear");
@@ -61,6 +70,7 @@ public class SimpleDrawingView extends View {
         postInvalidate();
     }
 
+    // for CharacterView.java's isCorrect()
     public Float getFirstx() { return firstx; }
     public Float getFirsty() { return firsty; }
     public Float getLastx() { return lastx; }
@@ -74,6 +84,7 @@ public class SimpleDrawingView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
+        // quiz mode; if false, does not accept input
         if (!mode) {
             return false;
         }
@@ -100,8 +111,6 @@ public class SimpleDrawingView extends View {
             default:
                 return false;
         }
-
-
 
 
         // Force a view to draw again

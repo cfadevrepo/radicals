@@ -50,7 +50,7 @@ public class CharacterViewManager extends ViewGroupManager<CharacterView> {
         cv.setData(data);
     }
 
-    // SVG strokes and median data; used for quiz mode
+    // SVG strokes and median data (formatted in JS); used for quiz mode
     @ReactProp(name="points")
     public void setCharacterViewPoints(CharacterView cv, String points) {
         Log.d("cvmanager", "setpointscalled");
