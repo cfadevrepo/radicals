@@ -2,7 +2,7 @@ import React from 'react'
 import { requireNativeComponent } from 'react-native';
 import PropTypes from 'prop-types';
 
-class CharacterView extends React.Component {
+class AndroidCharacterView extends React.Component {
 
   // constructor(props) {
   //   super(props);
@@ -31,15 +31,17 @@ class CharacterView extends React.Component {
       onEnd: this._onEnd,
     }
     return (
-      <CharacterView
+      <AndroidCharacterView
       {...nativeProps}
       />
     )
   }
 }
 
-CharacterView.propTypes = {
+AndroidCharacterView.propTypes = {
   data: PropTypes.string,
+  points: PropTypes.string,
+  quiz: PropTypes.bool,
   onEnd: PropTypes.func,
 };
 
@@ -61,4 +63,4 @@ CharacterView.propTypes = {
 // }
 
 // module.exports = requireNativeComponent('CharacterView', viewProps)
-module.exports = requireNativeComponent('CharacterView', CharacterView)
+module.exports = requireNativeComponent('CharacterView', AndroidCharacterView)

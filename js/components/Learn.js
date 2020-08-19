@@ -43,7 +43,7 @@ import { WebView } from 'react-native-webview';
 
 // import { requireNativeComponent } from 'react-native';
 // const CharacterView = requireNativeComponent('CharacterView');
-import CharacterView from './CharacterView'
+import AndroidCharacterView from './CharacterView'
 
 var DeckStore = require('../stores/DeckStore');
 var ProgressBar = require('./ProgressBar');
@@ -259,7 +259,7 @@ class Learn extends Component {
             {deck.questions.map(createDefinitionRow)}
           </ScrollView>
 
-          <CharacterView
+          <AndroidCharacterView
           style={styles.wordView}
           data={get_svg()}
           quiz={false}

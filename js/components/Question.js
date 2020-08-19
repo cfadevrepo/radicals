@@ -13,7 +13,7 @@ import Sound from 'react-native-sound';
 // import CharacterView from 'react-native-character-view-2'
 // const CharacterViewManager = NativeModules.RNCharacterViewManager;
 
-import CharacterView from './CharacterView'
+import AndroidCharacterView from './CharacterView'; // import as AndroidCharacterView
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -153,7 +153,7 @@ class Question extends Component {
         { (question.type == 'character') ?
             <View style={styles.wordView}>
 
-            <CharacterView
+            <AndroidCharacterView
             style={styles.wordView}
             points={JSON.stringify(SVGData[question.character.character])}
             quiz={true}
