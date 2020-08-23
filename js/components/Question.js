@@ -5,13 +5,15 @@ import { StyleSheet,
   TouchableHighlight,
   Text,
   Dimensions,
-  NativeModules } from 'react-native';
+  NativeModules,
+  Platform  } from 'react-native';
 
 import NavigationBar from 'react-native-navbar';
 import Sound from 'react-native-sound';
 
-// import CharacterView from 'react-native-character-view-2'
-// const CharacterViewManager = NativeModules.RNCharacterViewManager;
+// Original from Oliver
+import CharacterView from 'react-native-character-view-2'
+const CharacterViewManager = NativeModules.RNCharacterViewManager;
 
 import AndroidCharacterView from './CharacterView'; // import as AndroidCharacterView
 
@@ -129,7 +131,7 @@ class Question extends Component {
       )
     }, this)
 
-
+    if ( Platform.OS === 'android') {
     return (
       <View style={styles.container} >
 
@@ -168,6 +170,47 @@ class Question extends Component {
 
 			</View>
     )
+  } else {
+    return (
+      <View style={styles.container} >
+
+        <View style={styles.questionView}>
+
+        { this.props.showAnswer ?
+        <Text style={{fontSize: 50, padding: 15, color:'transparent'}}>{'❮'}</Text>
+        : null }
+          <QuestionText
+            character={question.character}
+            type={question.type}
+            showAnswer={showAnswer}
+          />
+          { this.props.showAnswer ?
+          <TouchableHighlight onPress={this.props.onNext} underlayColor='transparent'>
+            <Text style={{fontSize: 50, padding: 15, color:'#333'}}>{'❯'}</Text>
+          </TouchableHighlight> : null
+        }
+        </View>
+
+        { (question.type == 'character') ?
+            <View style={styles.wordView}>
+
+            <CharacterView
+                quiz={true}
+                character={question.character.character}
+                ref="characterView"
+                style={styles.wordView}
+                onComplete={this._onComplete}
+              />
+
+            </View> :
+          <View style={styles.choicesView}>
+            { choiceButtons }
+          </View>
+        }
+
+			</View>
+    )
+  }
   }
 }
 

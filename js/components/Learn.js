@@ -30,7 +30,8 @@ import { StyleSheet,
   TouchableHighlight,
   Text,
   Dimensions,
-  NativeModules } from 'react-native';
+  NativeModules,
+  Platform } from 'react-native';
 
 import NavigationBar from 'react-native-navbar';
 import Sound from 'react-native-sound';
@@ -38,8 +39,8 @@ import Sound from 'react-native-sound';
 import { WebView } from 'react-native-webview';
 
 // Original from Oliver
-// import CharacterView from 'react-native-character-view-2'
-// const CharacterViewManager = NativeModules.RNCharacterViewManager;
+import CharacterView from 'react-native-character-view-2'
+const CharacterViewManager = NativeModules.RNCharacterViewManager;
 
 // import { requireNativeComponent } from 'react-native';
 // const CharacterView = requireNativeComponent('CharacterView');
@@ -53,7 +54,7 @@ var SVGData = require('../stores/SVGData');
 class Learn extends Component {
   constructor(props) {
     super(props);
-    // this._animateStrokes = this._animateStrokes.bind(this);
+    this._animateStrokes = this._animateStrokes.bind(this);
     this._playRecording = this._playRecording.bind(this);
     this.onScrollAnimationEnd = this.onScrollAnimationEnd.bind(this);
     const { rawPinyin, tone } = this.props.character;
@@ -66,7 +67,7 @@ class Learn extends Component {
     console.log("mounted");
     setTimeout(this._playRecording, 400);
     console.log("recording played?");
-    // setTimeout(() => { this._animateStrokes() }, 400);
+    setTimeout(() => { this._animateStrokes() }, 400);
     this._isMounted = true; //sort of an antipattern
   }
 
@@ -74,9 +75,9 @@ class Learn extends Component {
     this._isMounted = false;
   }
 
-  // _animateStrokes() {
-  //   CharacterViewManager.animateStrokes();
-  // }
+  _animateStrokes() {
+    CharacterViewManager.animateStrokes();
+  }
 
   _playRecording() {
     // this.sound.stop();
@@ -97,7 +98,7 @@ class Learn extends Component {
     this.setState({
       character: this.props.deck.questions[i]
     }, () => {
-      // setTimeout(() => { this._animateStrokes() }, 100);
+      setTimeout(() => { this._animateStrokes() }, 100);
       const { rawPinyin, tone } = this.state.character;
       this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE, (error) => {
         if (error) {
@@ -237,7 +238,7 @@ class Learn extends Component {
       return SVGData["入"].strokes[0];
     }*/
 
-
+if ( Platform.OS === 'android') {
     return (
 
       <View style={styles.container} >
@@ -269,6 +270,40 @@ class Learn extends Component {
 
 
     )
+  } else {
+    return(
+
+      <View style={styles.container} >
+          <NavigationBar
+            title={titleConfig}
+            leftButton={leftButton}
+            rightButton={rightButton}
+            tintColor={'#f5f5f5'}
+            style={styles.navBar} />
+          <ProgressBar progress={progress} />
+
+          <ScrollView
+            horizontal={true}
+            contentOffset={{x: offset}}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled={true}
+            onMomentumScrollEnd={this.onScrollAnimationEnd}
+            style={styles.scrollView}>
+            {deck.questions.map(createDefinitionRow)}
+          </ScrollView>
+
+          <View style={styles.wordView}>
+            <CharacterView
+              character={character}
+              ref="characterView"
+              backgroundColor="transparent"
+              style={{flex: 1}} />
+          </View>
+
+      </View>
+
+    )
+  }
   }
 }
 
