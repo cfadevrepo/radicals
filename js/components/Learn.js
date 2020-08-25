@@ -34,7 +34,7 @@ import { StyleSheet,
 
 import NavigationBar from 'react-native-navbar';
 import Sound from 'react-native-sound';
-
+import ViewPager from '@react-native-community/viewpager';
 import { WebView } from 'react-native-webview';
 
 // Original from Oliver
@@ -249,7 +249,7 @@ class Learn extends Component {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          <ScrollView
+          {/* <ScrollView
             horizontal={true}
             contentOffset={{x: offset}}
             showsHorizontalScrollIndicator={false}
@@ -257,7 +257,16 @@ class Learn extends Component {
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             style={styles.scrollView}>
             {deck.questions.map(createDefinitionRow)}
-          </ScrollView>
+          </ScrollView> */}
+
+          <ViewPager style={styles.viewPager} initialPage={0}>
+            <View key="1">
+              <Text>First page</Text>
+            </View>
+            <View key="2">
+              <Text>Second page</Text>
+            </View>
+          </ViewPager>
 
           <AndroidCharacterView
           style={styles.wordView}
@@ -377,6 +386,9 @@ var styles = StyleSheet.create({
     padding: 22
     // width: 44,
     // flex: 1
+  },
+  viewPager: {
+    flex: 1,
   }
 })
 
