@@ -76,7 +76,9 @@ class Learn extends Component {
   }
 
   _animateStrokes() {
-    CharacterViewManager.animateStrokes();
+    if ( Platform.OS === 'ios') {
+      CharacterViewManager.animateStrokes();
+    }
   }
 
   _playRecording() {
