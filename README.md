@@ -21,9 +21,7 @@ Android is working **removing_RNCView_dependency** branch.
 - react-native: 0.63.1
 ```$ npm view react-native version```
 - react-native: 0.57.1
-```
-$ npx react-native --version
-```
+```$ npx react-native --version```
 - react-native-cli: 2.0.1
 ```$ npm view react-native-cli version```
 
