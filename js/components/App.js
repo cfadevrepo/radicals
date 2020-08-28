@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, StatusBar } from 'react-native';
+import {
+  StatusBar
+} from 'react-native';
 import { Navigator } from "react-native-deprecated-custom-components"
 
 import DeckList from './DeckList';
@@ -42,5 +44,5 @@ class App extends Component {
     )
   }
 }
-
-module.exports = App;
+export default App;
+//module.exports = App;
