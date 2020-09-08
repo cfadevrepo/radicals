@@ -24,10 +24,8 @@
 		49515934219872D9008699BE /* dian3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4951590B219872D8008699BE /* dian3.mp3 */; };
 		4DF7CC050E54454E8942EEC1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3019C05B6C4E5598A2BE1C /* FontAwesome5_Regular.ttf */; };
 		52DC87FF8F4B9258CAE1166A /* libPods-Radicals-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2F2C496BA48D2CE5BF8D59 /* libPods-Radicals-tvOS.a */; };
-		572F0FB58E3E4B75BF9B91F2 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F69B219B6FD4F9C98FEB5C6 /* libRNSound.a */; };
 		6417804010A346299AB40044 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD3899287F5743D3AFA23C6F /* FontAwesome.ttf */; };
 		6791D5C55E19483CA828BE86 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2F35D755994CF8A9C3E2E2 /* MaterialCommunityIcons.ttf */; };
-		6A57B84C94384E9D84B9AF66 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5351AD5D9ADB475A91E9162F /* libRNVectorIcons.a */; };
 		70F1C23887B742C68D970721 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5655CF5F5FB344CB9BF737E7 /* Entypo.ttf */; };
 		77A8C5C0E78B4F0FB4B38991 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8A594E8CDF54B49ABCA0718 /* FontAwesome5_Brands.ttf */; };
 		84A759162193E54800CCCB35 /* ba1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84A7583A2193E54600CCCB35 /* ba1.mp3 */; };
@@ -9723,6 +9721,7 @@
 		9FECCEE3EF31403CDCE4F59D /* libPods-Radicals-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B06224BACE2E5371DD8B8EB /* libPods-Radicals-tvOSTests.a */; };
 		A80F70BEDABBD6C3ADCBFAAF /* libPods-Radicals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE9A9FBF05DA74B0E61994B /* libPods-Radicals.a */; };
 		C704FF75C5C2D7F322738B20 /* libPods-Radicals-RadicalsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 718F47D5A510F1DB754B3746 /* libPods-Radicals-RadicalsTests.a */; };
+		C845D3782500B899002DC338 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C845D3772500B898002DC338 /* JavaScriptCore.framework */; };
 		DE956A8B9690403D89300CC1 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD563E396545919F1E07CE /* Foundation.ttf */; };
 		E8CE37D11F6A4DCD9012A172 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3673CD01084F05AD4FA417 /* Feather.ttf */; };
 		F8A12B1DD24B479DB9002471 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E141A8BACD49CCA0B500EA /* FontAwesome5_Solid.ttf */; };
@@ -9749,13 +9748,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCharacterView;
-		};
-		C8274D2224F9ACC600B30D39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C8274D1E24F9ACC500B30D39 /* RNCWebView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNCWebView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -19486,7 +19478,8 @@
 		C18A62C1A6927A6E8F2D60EC /* Pods-Radicals-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radicals-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Radicals-tvOSTests/Pods-Radicals-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2BEC19DB8676C840764C256 /* Pods-Radicals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radicals.debug.xcconfig"; path = "Target Support Files/Pods-Radicals/Pods-Radicals.debug.xcconfig"; sourceTree = "<group>"; };
 		C8274D1224F9AC8400B30D39 /* RNCharacterView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCharacterView.xcodeproj; path = "../node_modules/react-native-character-view-2/RNCharacterView.xcodeproj"; sourceTree = "<group>"; };
-		C8274D1E24F9ACC500B30D39 /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
+		C845D3742500B737002DC338 /* Radicals-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Radicals-Bridging-Header.h"; sourceTree = "<group>"; };
+		C845D3772500B898002DC338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		CD3899287F5743D3AFA23C6F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		DC32F4B1ADFA8A3D9206E818 /* Pods-Radicals-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radicals-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Radicals-tvOS/Pods-Radicals-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3673CD01084F05AD4FA417 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -19508,8 +19501,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				572F0FB58E3E4B75BF9B91F2 /* libRNSound.a in Frameworks */,
-				6A57B84C94384E9D84B9AF66 /* libRNVectorIcons.a in Frameworks */,
+				C845D3782500B899002DC338 /* JavaScriptCore.framework in Frameworks */,
 				A80F70BEDABBD6C3ADCBFAAF /* libPods-Radicals.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -19568,6 +19560,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C845D3772500B898002DC338 /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				FFE9A9FBF05DA74B0E61994B /* libPods-Radicals.a */,
 				718F47D5A510F1DB754B3746 /* libPods-Radicals-RadicalsTests.a */,
@@ -19604,7 +19597,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C8274D1E24F9ACC500B30D39 /* RNCWebView.xcodeproj */,
 				C8274D1224F9AC8400B30D39 /* RNCharacterView.xcodeproj */,
 			);
 			name = Libraries;
@@ -19621,6 +19613,7 @@
 				357C41A982674EC7AE14CAB2 /* Resources */,
 				84D4EBDA215D627800A5484F /* Recovered References */,
 				F103DC49C96870BE916E8E73 /* Pods */,
+				C845D3742500B737002DC338 /* Radicals-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -29359,14 +29352,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C8274D1F24F9ACC500B30D39 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C8274D2324F9ACC600B30D39 /* libRNCWebView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F103DC49C96870BE916E8E73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -29479,6 +29464,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 74847X9366;
+						LastSwiftMigration = 1160;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -29508,10 +29494,6 @@
 					ProductGroup = C8274D1324F9AC8400B30D39 /* Products */;
 					ProjectRef = C8274D1224F9AC8400B30D39 /* RNCharacterView.xcodeproj */;
 				},
-				{
-					ProductGroup = C8274D1F24F9ACC500B30D39 /* Products */;
-					ProjectRef = C8274D1E24F9ACC500B30D39 /* RNCWebView.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -29529,13 +29511,6 @@
 			fileType = archive.ar;
 			path = libRNCharacterView.a;
 			remoteRef = C8274D1624F9AC9600B30D39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C8274D2324F9ACC600B30D39 /* libRNCWebView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNCWebView.a;
-			remoteRef = C8274D2224F9ACC600B30D39 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -39313,11 +39288,26 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radicals/Pods-Radicals-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -39331,10 +39321,42 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radicals-RadicalsTests/Pods-Radicals-RadicalsTests-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39567,11 +39589,13 @@
 			baseConfigurationReference = C2BEC19DB8676C840764C256 /* Pods-Radicals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 74847X9366;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-character-view/ios",
@@ -39580,6 +39604,11 @@
 				);
 				INFOPLIST_FILE = Radicals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+					"$(inherited)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -39589,6 +39618,9 @@
 				PRODUCT_NAME = Radicals;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Radicals-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -39598,10 +39630,13 @@
 			baseConfigurationReference = 8E92C8112E9C03744007FBAD /* Pods-Radicals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 74847X9366;
+				ENABLE_BITCODE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-character-view/ios",
@@ -39610,6 +39645,11 @@
 				);
 				INFOPLIST_FILE = Radicals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+					"$(inherited)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -39619,6 +39659,8 @@
 				PRODUCT_NAME = Radicals;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Radicals-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -39627,6 +39669,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC32F4B1ADFA8A3D9206E818 /* Pods-Radicals-tvOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -39666,6 +39709,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9946BCA922CB97DF4E51AA95 /* Pods-Radicals-tvOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -39705,6 +39749,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDAE54B828EC61D976268812 /* Pods-Radicals-tvOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -39720,7 +39765,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = "Radicals-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -39743,6 +39788,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C18A62C1A6927A6E8F2D60EC /* Pods-Radicals-tvOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -39758,7 +39804,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = "Radicals-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -39780,6 +39826,7 @@
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -39834,6 +39881,7 @@
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
