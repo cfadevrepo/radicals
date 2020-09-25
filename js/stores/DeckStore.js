@@ -224,7 +224,6 @@ var DeckStore = assign({}, EventEmitter.prototype, {
 
   getWordsOfDeck: function(deckName) {
     // Super hack right here
-    console.log("RIGHT HERE BITCH!!!", DeckData)
     var allQuestions = DeckData[deckName].questions;
     return allQuestions;
   },
