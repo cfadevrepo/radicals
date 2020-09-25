@@ -5,13 +5,14 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
-import com.reactnativecommunity.webview.RNCWebViewPackage;
-import com.horcrux.svg.SvgPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.zmxv.RNSound.RNSoundPackage;
+//import com.reactnativecommunity.webview.RNCWebViewPackage;
+//import com.horcrux.svg.SvgPackage;
+//import com.oblador.vectoricons.VectorIconsPackage;
+//import com.zmxv.RNSound.RNSoundPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+//import com.facebook.react.shell.MainReactPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -30,13 +31,13 @@ public class MainApplication extends Application implements ReactApplication {
         @SuppressWarnings("UnnecessaryLocalVariable")
         List<ReactPackage> packages = new PackageList(this).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(new MyReactNativePackage());
-        packages.add(new MainReactPackage());
-        packages.add(new VectorIconsPackage());
-        packages.add(new RNSoundPackage());
-        packages.add(new RNCWebViewPackage());
-        packages.add(new SvgPackage());
-        packages.add(new CharacterViewPackage());
+        //packages.add(new MyReactNativePackage());
+        //packages.add(new MainReactPackage());
+        //packages.add(new VectorIconsPackage());
+        //packages.add(new RNSoundPackage());
+        //packages.add(new RNCWebViewPackage());
+        //packages.add(new SvgPackage());
+        //packages.add(new CharacterViewPackage());
         return packages;
       }
 

@@ -1,6 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var Constants = require('../constants/Constants');
-var EventEmitter = require('EventEmitter');
+const EventEmitter = require('../../node_modules/react-native/Libraries/vendor/emitter/EventEmitter.js');
 var assign = require('object-assign');
 
 var store = require('react-native-simple-store');
@@ -168,7 +168,7 @@ var DeckStore = assign({}, EventEmitter.prototype, {
   questionFromDeck: function(deckName) {
     var question = {};
 
-    var allQuestions = DeckData[deckName].questions;
+    var allQuestions = DeckData[deckName].questions; 
     var character = allQuestions[Math.floor(Math.random() * allQuestions.length)];
     if (character == previousCharacter)
       return this.questionFromDeck(deckName);
@@ -224,6 +224,7 @@ var DeckStore = assign({}, EventEmitter.prototype, {
 
   getWordsOfDeck: function(deckName) {
     // Super hack right here
+    console.log("RIGHT HERE BITCH!!!", DeckData)
     var allQuestions = DeckData[deckName].questions;
     return allQuestions;
   },

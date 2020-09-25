@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Dimensions,
-  ListView,
+  FlatList,
   TouchableHighlight,
   View,
   Text
@@ -20,35 +20,39 @@ export default class DeckList extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    //const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this._onChange = this._onChange.bind(this);
     this._renderRow = this._renderRow.bind(this)
     DeckStore.addChangeListener('decks', this._onChange);
 		this.state = {
-			dataSource: ds.cloneWithRows(DeckStore.getDecks())
+      //dataSource: ds.cloneWithRows(DeckStore.getDecks())
+      dataSource: DeckStore.getDecks()
     }
   }
 
   _onChange() {
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    //const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.setState({
-			dataSource: ds.cloneWithRows(DeckStore.getDecks())
+			//dataSource: ds.cloneWithRows(DeckStore.getDecks())
+      dataSource: DeckStore.getDecks()
     })
   }
 
-  _selectDeck(deck) {
-    var deckData = this.state.dataSource.getRowData(0, deck); //super hacky
+  _selectDeck(rowData) {
+    //var deckData = this.state.dataSource.getRowData(0, deck); //super hacky 
+    //var deckData = this.state.dataSource.rowData; //super hacky
+    console.log("AHHHHHHHHHHHHHHHAHAHAHAHAHAHAHAHAHAHAH", rowData)
     this.props.navigator.push({
-      title: deck,
+      title: rowData.item.name,
       id: 'wordlist',
-      passProps: {deck: deckData},
+      passProps: {deck: rowData.item},
       _handleBackButtonPress: this._handleBackButtonPress
     });
   }
 
   _renderRow(rowData, sectionID, rowID, highlightRow) {
     var progress = DeckStore.getProgressOfDeck(rowData.name)
-
+    console.log('BITCH IM HERE !!!!!', rowData)
     var color;
     if (progress < 20)
     	color = '#aaa';
@@ -87,14 +91,16 @@ export default class DeckList extends Component {
     //   )
 
     // Make a cell class
+    //camryn line 102
+    //font isnt working on ios, print font names and see if it's right
     return (
       <TouchableHighlight
-        onPress={() => this._selectDeck(rowID) }
+        onPress={() => this._selectDeck(rowData) }
         underlayColor="transparent">
         <View>
           <View style={styles.row}>
             <Text style={styles.text}>
-              {rowData.name}
+              {rowData.item.name} 
             </Text>
             <Text style={style}>
               {progress}%
@@ -106,6 +112,27 @@ export default class DeckList extends Component {
     )
   }
 
+  _renderItem({item}){
+    var progress = DeckStore.getProgressOfDeck(rowData.name)
+    console.log('HERE', item)
+    return (
+      <TouchableHighlight
+        //onPress={() => this._selectDeck(rowID) }
+        underlayColor="transparent">
+        <View>
+          {/* <View style={styles.row}>
+            <Text style={styles.text}>
+              {rowData.name}
+            </Text>
+            <Text style={style}>
+              {progress}%
+            </Text>
+          </View>
+          <ProgressBar progress={progress} /> */}
+        </View>
+      </TouchableHighlight>
+    )
+  }
 
   render() {
     var titleConfig = {
@@ -123,10 +150,14 @@ export default class DeckList extends Component {
             style: 'default',
             tintColor: NAV_BAR_COLOR
           }} />
-        <ListView
+        {/* <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
           showsVerticalScrollIndicator={false}
+        /> */}
+        <FlatList
+          data = {this.state.dataSource}
+          renderItem = {this._renderRow}
         />
       </View>
     )

@@ -3,17 +3,18 @@ import React, {
 } from 'react';
 
 import {
-  ListView,
+  FlatList,
   View,
   Text,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
+  StyleSheet
 } from 'react-native'
 
 var DeckStore = require('../stores/DeckStore');
 import NavigationBar from 'react-native-navbar';
 var ProgressBar = require('./ProgressBar');
-var StyleSheet = require('StyleSheet');
+//var StyleSheet = require('StyleSheet');
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
@@ -22,15 +23,16 @@ export default class WordList extends Component {
   constructor(props) {
     super(props);
 
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-    });
-    this._renderRow = this._renderRow.bind(this)
-
-    // DeckStore.getDecksObject(this.props.deck.name)
+    // const ds = new ListView.DataSource({
+    //   rowHasChanged: (r1, r2) => r1 !== r2,
+    //   sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+    // });
+    //this._renderRow = this._renderRow.bind(this)
+    this.renderItem = this.renderItem.bind(this)
+    //DeckStore.getDecksObject(this.props.deck.name)
     this.state = {
-      dataSource: ds.cloneWithRows(DeckStore.getWordsOfDeck(this.props.deck.name)),
+      //dataSource: ds.cloneWithRows(DeckStore.getWordsOfDeck(this.props.deck.name)),
+      dataSource: DeckStore.getWordsOfDeck(this.props.deck.name),
       progress: DeckStore.getProgressOfDeck(this.props.deck.name)
     }
   }
@@ -44,30 +46,52 @@ export default class WordList extends Component {
     });
   }
 
-  _renderRow(rowData) {
-
-    var progressText;
-
+  renderItem({ item }) {
     // Subclass this
     return (
       <TouchableHighlight
-        onPress={() => this._selectCharacter(rowData)}>
+        onPress={() => this._selectCharacter(itemrowData)}>
         <View>
           <View style={styles.row}>
             <Text style={styles.character}>
-              {rowData.character}
+              {item.character}
             </Text>
             <Text style={styles.meaning}>
-              {rowData.meaning}
+              {item.meaning}
             </Text>
             <Text style={styles.pinyin}>
-              {rowData.pinyin}
+              {item.pinyin}
             </Text>
           </View>
         </View>
       </TouchableHighlight>
     )
   }
+
+  // _renderRow(rowData) {
+
+  //   var progressText;
+
+  //   // Subclass this
+  //   return (
+  //     <TouchableHighlight
+  //       onPress={() => this._selectCharacter(rowData)}>
+  //       <View>
+  //         <View style={styles.row}>
+  //           <Text style={styles.character}>
+  //             {rowData.character}
+  //           </Text>
+  //           <Text style={styles.meaning}>
+  //             {rowData.meaning}
+  //           </Text>
+  //           <Text style={styles.pinyin}>
+  //             {rowData.pinyin}
+  //           </Text>
+  //         </View>
+  //       </View>
+  //     </TouchableHighlight>
+  //   )
+  // }
 
   startStudying() {
     this.props.navigator.push({
@@ -80,7 +104,7 @@ export default class WordList extends Component {
 
   render() {
     var progress = DeckStore.getProgressOfDeck(this.props.deck.name)
-
+    //var color = '#aaa'
     var leftButtonConfig = {
       title: 'Back',
       tintColor: '#333',
@@ -124,10 +148,58 @@ export default class WordList extends Component {
               }} />
             <ProgressBar progress={progress} />
             {
-              <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this._renderRow}
-                initialListSize={80}
+              // <ListView
+              //   dataSource={this.state.dataSource}
+              //   renderRow={this._renderRow}
+              //   initialListSize={80}
+              //   showsVerticalScrollIndicator={false}
+              //   scrollsToTop={false}
+              //   renderScrollComponent={props => (
+              //     <ParallaxScrollView
+
+              //       style={{zIndex: -1}}
+              //       backgroundColor={HEADER_COLOR}
+              //       headerBackgroundColor={HEADER_COLOR}
+              //       stickyHeaderHeight={ STICKY_HEADER_HEIGHT }
+              //       parallaxHeaderHeight={ parallaxWindowHeight }
+              //       backgroundSpeed={ 10 }
+              //       fadeOutForeground = { false }
+
+              //       renderForeground={() => (
+              //         <View style={styles.titleView}>
+
+              //           <Text style={styles.infoText}>
+              //             {this.props.deck.total} characters, {progress}% complete
+              //           </Text>
+              //           <TouchableHighlight
+              //             onPress={() => this.startStudying() }
+              //             underlayColor={'transparent'}>
+              //             <Text style={styles.buttonText}>
+              //               Start quiz >
+              //             </Text>
+              //           </TouchableHighlight>
+              //         </View>
+              //       )}
+
+              //       renderStickyHeader={() => (
+              //         <View key="sticky-header" style={styles.stickySection}>
+              //         <TouchableHighlight
+              //           onPress={() => this.startStudying() }
+              //           underlayColor={'transparent'}>
+              //           <Text style={styles.buttonText}>
+              //             Start quiz >
+              //           </Text>
+              //         </TouchableHighlight>
+              //         </View>
+              //       )}
+
+              //       />
+              //   )}
+              // />
+              <FlatList
+                data={DeckStore.getWordsOfDeck(this.props.deck.name)}
+                renderItem={this.renderItem}
+                initialNumToRender={80}
                 showsVerticalScrollIndicator={false}
                 scrollsToTop={false}
                 renderScrollComponent={props => (
@@ -168,7 +240,6 @@ export default class WordList extends Component {
                       </TouchableHighlight>
                       </View>
                     )}
-
                     />
                 )}
               />
