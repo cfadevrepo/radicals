@@ -41,7 +41,6 @@ export default class DeckList extends Component {
   _selectDeck(rowData) {
     //var deckData = this.state.dataSource.getRowData(0, deck); //super hacky 
     //var deckData = this.state.dataSource.rowData; //super hacky
-    console.log("AHHHHHHHHHHHHHHHAHAHAHAHAHAHAHAHAHAHAH", rowData)
     this.props.navigator.push({
       title: rowData.item.name,
       id: 'wordlist',
@@ -52,7 +51,6 @@ export default class DeckList extends Component {
 
   _renderRow(rowData, sectionID, rowID, highlightRow) {
     var progress = DeckStore.getProgressOfDeck(rowData.name)
-    console.log('BITCH IM HERE !!!!!', rowData)
     var color;
     if (progress < 20)
     	color = '#aaa';
