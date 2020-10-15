@@ -50,7 +50,7 @@ export default class WordList extends Component {
     // Subclass this
     return (
       <TouchableHighlight
-        onPress={() => this._selectCharacter(itemrowData)}>
+        onPress={() => this._selectCharacter(item)}>
         <View>
           <View style={styles.row}>
             <Text style={styles.character}>
@@ -223,7 +223,7 @@ export default class WordList extends Component {
                           onPress={() => this.startStudying() }
                           underlayColor={'transparent'}>
                           <Text style={styles.buttonText}>
-                            Start quiz >
+                            Start quiz
                           </Text>
                         </TouchableHighlight>
                       </View>
@@ -235,7 +235,7 @@ export default class WordList extends Component {
                         onPress={() => this.startStudying() }
                         underlayColor={'transparent'}>
                         <Text style={styles.buttonText}>
-                          Start quiz >
+                          Start quiz
                         </Text>
                       </TouchableHighlight>
                       </View>

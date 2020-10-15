@@ -50,7 +50,7 @@ export default class DeckList extends Component {
   }
 
   _renderRow(rowData, sectionID, rowID, highlightRow) {
-    var progress = DeckStore.getProgressOfDeck(rowData.name)
+    var progress = DeckStore.getProgressOfDeck(rowData.item.name)
     var color;
     if (progress < 20)
     	color = '#aaa';
@@ -89,7 +89,7 @@ export default class DeckList extends Component {
     //   )
 
     // Make a cell class
-    //camryn line 102
+    //camryn line 103
     //font isnt working on ios, print font names and see if it's right
     return (
       <TouchableHighlight
@@ -112,7 +112,6 @@ export default class DeckList extends Component {
 
   _renderItem({item}){
     var progress = DeckStore.getProgressOfDeck(rowData.name)
-    console.log('HERE', item)
     return (
       <TouchableHighlight
         //onPress={() => this._selectDeck(rowID) }

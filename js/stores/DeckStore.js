@@ -21,7 +21,7 @@ Meaning - character
 var DeckData = {};
 store.get('decks').then((decks) => {
   if (!decks) {
-    console.log('yerr')
+    console.log('err')
     decks = require('./DeckData');
   }
   DeckData = decks;

@@ -9722,6 +9722,11 @@
 		A80F70BEDABBD6C3ADCBFAAF /* libPods-Radicals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE9A9FBF05DA74B0E61994B /* libPods-Radicals.a */; };
 		C704FF75C5C2D7F322738B20 /* libPods-Radicals-RadicalsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 718F47D5A510F1DB754B3746 /* libPods-Radicals-RadicalsTests.a */; };
 		C845D3782500B899002DC338 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C845D3772500B898002DC338 /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		C89CB8A7251F0145001A52A0 /* libReact-Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89CB8A6251F0145001A52A0 /* libReact-Core.a */; };
+		C8D0AF462532D44100B10F31 /* libRNCharacterView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */; };
+		C8D0AF502532E55100B10F31 /* libRNCharacterView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */; };
+		C8D0AF522532E56100B10F31 /* libRNCharacterView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */; };
+		C8D0AF532532E56D00B10F31 /* libRNCharacterView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */; };
 		C8FF5254250C687700383A5B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FF5253250C687600383A5B /* JavaScriptCore.framework */; };
 		C8FF5256250C688100383A5B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FF5255250C688000383A5B /* JavaScriptCore.framework */; };
 		C8FF5257250C688700383A5B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FF5255250C688000383A5B /* JavaScriptCore.framework */; };
@@ -9749,9 +9754,16 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "Radicals-tvOS";
 		};
-		C8FF5250250C679C00383A5B /* PBXContainerItemProxy */ = {
+		C8D0AF1D2532B2DC00B10F31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8FF524C250C679C00383A5B /* RNCharacterView.xcodeproj */;
+			containerPortal = C8D0AF182532B2DB00B10F31 /* RNCharacterView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCharacterView;
+		};
+		C8D0AF4B2532DA3100B10F31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8D0AF472532DA2D00B10F31 /* RNCharacterView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCharacterView;
@@ -19486,7 +19498,9 @@
 		C2BEC19DB8676C840764C256 /* Pods-Radicals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radicals.debug.xcconfig"; path = "Target Support Files/Pods-Radicals/Pods-Radicals.debug.xcconfig"; sourceTree = "<group>"; };
 		C845D3742500B737002DC338 /* Radicals-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Radicals-Bridging-Header.h"; sourceTree = "<group>"; };
 		C845D3772500B898002DC338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		C8FF524C250C679C00383A5B /* RNCharacterView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCharacterView.xcodeproj; path = "../node_modules/react-native-character-view-2/ios/RNCharacterView.xcodeproj"; sourceTree = "<group>"; };
+		C89CB8A6251F0145001A52A0 /* libReact-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D0AF182532B2DB00B10F31 /* RNCharacterView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCharacterView.xcodeproj; path = "../node_modules/react-native-character-view-2/ios/RNCharacterView.xcodeproj"; sourceTree = "<group>"; };
+		C8D0AF472532DA2D00B10F31 /* RNCharacterView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCharacterView.xcodeproj; path = "../node_modules/react-native-character-view/ios/RNCharacterView.xcodeproj"; sourceTree = "<group>"; };
 		C8FF5253250C687600383A5B /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		C8FF5255250C688000383A5B /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS13.4.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		C8FF5258250C6C8000383A5B /* RadicalsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RadicalsTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -19508,6 +19522,7 @@
 			files = (
 				C8FF5254250C687700383A5B /* JavaScriptCore.framework in Frameworks */,
 				C704FF75C5C2D7F322738B20 /* libPods-Radicals-RadicalsTests.a in Frameworks */,
+				C8D0AF502532E55100B10F31 /* libRNCharacterView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -19515,8 +19530,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89CB8A7251F0145001A52A0 /* libReact-Core.a in Frameworks */,
 				C845D3782500B899002DC338 /* JavaScriptCore.framework in Frameworks */,
 				A80F70BEDABBD6C3ADCBFAAF /* libPods-Radicals.a in Frameworks */,
+				C8D0AF462532D44100B10F31 /* libRNCharacterView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -19527,6 +19544,7 @@
 				C8FF5256250C688100383A5B /* JavaScriptCore.framework in Frameworks */,
 				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
 				52DC87FF8F4B9258CAE1166A /* libPods-Radicals-tvOS.a in Frameworks */,
+				C8D0AF522532E56100B10F31 /* libRNCharacterView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -19536,6 +19554,7 @@
 			files = (
 				C8FF5257250C688700383A5B /* JavaScriptCore.framework in Frameworks */,
 				9FECCEE3EF31403CDCE4F59D /* libPods-Radicals-tvOSTests.a in Frameworks */,
+				C8D0AF532532E56D00B10F31 /* libRNCharacterView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -19576,6 +19595,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C89CB8A6251F0145001A52A0 /* libReact-Core.a */,
 				C845D3772500B898002DC338 /* JavaScriptCore.framework */,
 				C8FF5253250C687600383A5B /* JavaScriptCore.framework */,
 				C8FF5255250C688000383A5B /* JavaScriptCore.framework */,
@@ -19615,7 +19635,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C8FF524C250C679C00383A5B /* RNCharacterView.xcodeproj */,
+				C8D0AF472532DA2D00B10F31 /* RNCharacterView.xcodeproj */,
+				C8D0AF182532B2DB00B10F31 /* RNCharacterView.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -29366,10 +29387,18 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		C8FF524D250C679C00383A5B /* Products */ = {
+		C8D0AF192532B2DB00B10F31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8FF5251250C679C00383A5B /* libRNCharacterView.a */,
+				C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8D0AF482532DA2D00B10F31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8D0AF4C2532DA3100B10F31 /* libRNCharacterView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -29516,8 +29545,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C8FF524D250C679C00383A5B /* Products */;
-					ProjectRef = C8FF524C250C679C00383A5B /* RNCharacterView.xcodeproj */;
+					ProductGroup = C8D0AF482532DA2D00B10F31 /* Products */;
+					ProjectRef = C8D0AF472532DA2D00B10F31 /* RNCharacterView.xcodeproj */;
+				},
+				{
+					ProductGroup = C8D0AF192532B2DB00B10F31 /* Products */;
+					ProjectRef = C8D0AF182532B2DB00B10F31 /* RNCharacterView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -29531,11 +29564,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C8FF5251250C679C00383A5B /* libRNCharacterView.a */ = {
+		C8D0AF1E2532B2DC00B10F31 /* libRNCharacterView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNCharacterView.a;
-			remoteRef = C8FF5250250C679C00383A5B /* PBXContainerItemProxy */;
+			remoteRef = C8D0AF1D2532B2DC00B10F31 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8D0AF4C2532DA3100B10F31 /* libRNCharacterView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCharacterView.a;
+			remoteRef = C8D0AF4B2532DA3100B10F31 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -39333,6 +39373,23 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -39637,9 +39694,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(Radicals)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-character-view/ios",
+					"$(SRCROOT)/../node_modules/react-native-character-view-2/ios",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/**",
 				);
 				INFOPLIST_FILE = Radicals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -39679,9 +39737,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(Radicals)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-character-view/ios",
+					"$(SRCROOT)/../node_modules/react-native-character-view-2/ios",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/**",
 				);
 				INFOPLIST_FILE = Radicals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

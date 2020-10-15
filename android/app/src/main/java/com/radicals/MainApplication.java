@@ -37,7 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
         //packages.add(new RNSoundPackage());
         //packages.add(new RNCWebViewPackage());
         //packages.add(new SvgPackage());
-        //packages.add(new CharacterViewPackage());
+        packages.add(new CharacterViewPackage());
         return packages;
       }
 

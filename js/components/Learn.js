@@ -26,6 +26,7 @@ import React, { Component } from 'react';
 import { StyleSheet,
   View,
   ScrollView,
+  FlatList,
   TouchableOpacity,
   TouchableHighlight,
   Text,
@@ -45,6 +46,7 @@ const CharacterViewManager = NativeModules.RNCharacterViewManager;
 // import { requireNativeComponent } from 'react-native';
 // const CharacterView = requireNativeComponent('CharacterView');
 import AndroidCharacterView from './CharacterView'
+//import { FlatList } from 'react-native-gesture-handler';
 
 var DeckStore = require('../stores/DeckStore');
 var ProgressBar = require('./ProgressBar');
@@ -60,7 +62,6 @@ class Learn extends Component {
     const { rawPinyin, tone } = this.props.character;
     this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE);
     this.state = { character: this.props.character };
-
   }
 
   componentDidMount() {
@@ -113,6 +114,15 @@ class Learn extends Component {
     })
   }
 
+  renderItem({ item }) {
+    // Subclass this
+    return (
+      <Text>
+        {item}
+      </Text>
+    )
+  }
+
   render() {
     const { meaning, pinyin, character } = this.state.character;
 
@@ -155,8 +165,6 @@ class Learn extends Component {
     };
 
     let deck = this.props.deck;
-
-    const offset = (this.state.character.rank-1)*screen.width;
 
     // need to store?
     function get_svg() {
@@ -242,7 +250,6 @@ class Learn extends Component {
 
 if ( Platform.OS === 'android') {
     return (
-
       <View style={styles.container} >
           <NavigationBar
             title={titleConfig}
@@ -252,29 +259,36 @@ if ( Platform.OS === 'android') {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          <ScrollView
+          {/* <ScrollView
             horizontal={true}
-            contentOffset={{x: offset}}
+            contentOffset={1}
             showsHorizontalScrollIndicator={false}
             pagingEnabled={true}
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             style={styles.scrollView}>
             {deck.questions.map(createDefinitionRow)}
-          </ScrollView>
+          </ScrollView> */}
+
+          <FlatList
+            horizontal={true}
+            initialScrollIndex={this.state.character.rank-1}
+            showsHorizontalScrollIndicator={false}
+            data={deck.questions.map(createDefinitionRow)}
+            renderItem={this.renderItem}
+            pagingEnabled={true}
+            onMomentumScrollEnd={this.onScrollAnimationEnd}
+            style={styles.scrollView}>
+          </FlatList>
 
           <AndroidCharacterView
           style={styles.wordView}
           data={get_svg()}
           quiz={false}
           />
-
       </View>
-
-
     )
   } else {
     return(
-
       <View style={styles.container} >
           <NavigationBar
             title={titleConfig}
@@ -284,15 +298,26 @@ if ( Platform.OS === 'android') {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          <ScrollView
+          {/* <ScrollView
             horizontal={true}
-            contentOffset={{x: offset}}
+            contentOffset={3}
             showsHorizontalScrollIndicator={false}
             pagingEnabled={true}
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             style={styles.scrollView}>
             {deck.questions.map(createDefinitionRow)}
-          </ScrollView>
+          </ScrollView> */}
+
+          <FlatList
+            horizontal={true}
+            initialScrollIndex={this.state.character.rank-1}
+            showsHorizontalScrollIndicator={false}
+            data={deck.questions.map(createDefinitionRow)}
+            renderItem={this.renderItem}
+            pagingEnabled={true}
+            onMomentumScrollEnd={this.onScrollAnimationEnd}
+            style={styles.scrollView}>
+          </FlatList>
 
           <View style={styles.wordView}>
             <CharacterView
@@ -305,7 +330,7 @@ if ( Platform.OS === 'android') {
       </View>
 
     )
-  }
+   }
   }
 }
 
@@ -350,7 +375,6 @@ class Definition extends Component {
 
 var screen = Dimensions.get('window');
 const NAV_BAR_COLOR = '#F4F4F4';
-
 var styles = StyleSheet.create({
   container: {
     flex: 1,
