@@ -26,6 +26,7 @@ import React, { Component } from 'react';
 import { StyleSheet,
   View,
   ScrollView,
+  FlatList,
   TouchableOpacity,
   TouchableHighlight,
   Text,
@@ -45,6 +46,7 @@ const CharacterViewManager = NativeModules.RNCharacterViewManager;
 // import { requireNativeComponent } from 'react-native';
 // const CharacterView = requireNativeComponent('CharacterView');
 import AndroidCharacterView from './CharacterView'
+//import { FlatList } from 'react-native-gesture-handler';
 
 var DeckStore = require('../stores/DeckStore');
 var ProgressBar = require('./ProgressBar');
@@ -59,12 +61,12 @@ class Learn extends Component {
     this.onScrollAnimationEnd = this.onScrollAnimationEnd.bind(this);
     const { rawPinyin, tone } = this.props.character;
     this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE);
-    this.state = { character: this.props.character };
-
+    console.log(this.sound)
+    this.state = { character: this.props.character, playing: false, deckData: this.props.deck.questions.map(createDefinitionRow) };
   }
 
   componentDidMount() {
-    console.log("mounted");
+    //console.log("mounted");
     setTimeout(this._playRecording, 400);
     console.log("recording played?");
     setTimeout(() => { this._animateStrokes() }, 400);
@@ -93,7 +95,7 @@ class Learn extends Component {
 
   onScrollAnimationEnd(e) {
     e.stopPropagation();
-    const { contentOffset, layoutMeasurement } = e.nativeEvent;
+    const { initialScrollIndex, contentOffset, layoutMeasurement } = e.nativeEvent;
     const i = Math.max(0, Math.floor(contentOffset.x/layoutMeasurement.width));
     if (this.props.deck.questions[i] == this.state.character)
       return;
@@ -113,7 +115,15 @@ class Learn extends Component {
     })
   }
 
-  render() {
+  _renderItem({item, index}){ // Passing as object from here
+    return (
+      <View key={index}>
+          {item}
+      </View>
+    )
+  }
+
+  render() { 
     const { meaning, pinyin, character } = this.state.character;
 
     let leftButton = <TouchableHighlight
@@ -121,7 +131,7 @@ class Learn extends Component {
       underlayColor={'transparent'}>
       <View style={styles.closeButton}>
           <Text style={{ fontSize: 25, color: '#333' }}>
-            ✕
+            x
           </Text>
       </View>
     </TouchableHighlight>
@@ -155,8 +165,6 @@ class Learn extends Component {
     };
 
     let deck = this.props.deck;
-
-    const offset = (this.state.character.rank-1)*screen.width;
 
     // need to store?
     function get_svg() {
@@ -237,12 +245,13 @@ class Learn extends Component {
 
     /*function get_svg() {
       //return character;
-      return SVGData["入"].strokes[0];
+      return SVGData["å…¥"].strokes[0];
     }*/
 
-if ( Platform.OS === 'android') {
-    return (
+// const deckData = deck.questions.map(createDefinitionRow);
 
+if (Platform.OS === 'android') {
+    return (
       <View style={styles.container} >
           <NavigationBar
             title={titleConfig}
@@ -252,29 +261,30 @@ if ( Platform.OS === 'android') {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          <ScrollView
+          <FlatList
             horizontal={true}
-            contentOffset={{x: offset}}
+            initialScrollIndex={this.state.character.rank-1}
             showsHorizontalScrollIndicator={false}
-            pagingEnabled={true}
+            data={this.state.deckData}
+            renderItem={this._renderItem}
+            style={styles.scrollView}
+            initialNumToRender={this.state.deckData.length}
+            maxToRenderPerBatch={this.state.deckData.length}
             onMomentumScrollEnd={this.onScrollAnimationEnd}
-            style={styles.scrollView}>
-            {deck.questions.map(createDefinitionRow)}
-          </ScrollView>
+            pagingEnabled={true}
+            decelerationRate={0}            
+            >
+          </FlatList>
 
           <AndroidCharacterView
           style={styles.wordView}
           data={get_svg()}
           quiz={false}
           />
-
       </View>
-
-
     )
   } else {
     return(
-
       <View style={styles.container} >
           <NavigationBar
             title={titleConfig}
@@ -284,15 +294,15 @@ if ( Platform.OS === 'android') {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          <ScrollView
+          <FlatList
             horizontal={true}
-            contentOffset={{x: offset}}
-            showsHorizontalScrollIndicator={false}
+            initialScrollIndex={this.state.character.rank-1}
+            data={deck.questions.map(createDefinitionRow)}
+            renderItem={this._renderItem}
             pagingEnabled={true}
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             style={styles.scrollView}>
-            {deck.questions.map(createDefinitionRow)}
-          </ScrollView>
+          </FlatList>
 
           <View style={styles.wordView}>
             <CharacterView
@@ -301,31 +311,20 @@ if ( Platform.OS === 'android') {
               backgroundColor="transparent"
               style={{flex: 1}} />
           </View>
-
       </View>
-
     )
-  }
+   }
   }
 }
-
-// <View style={styles.wordView}>
-//   <CharacterView
-//     character={character}
-//     ref="characterView"
-//     backgroundColor="transparent"
-//     style={{flex: 1}} />
-// </View>
-
-//<WebView source={{html:''+ get_svg()}} />
-// <View style={styles.wordView}>
-// <CharacterView></CharacterView>
-// </View>
-// data={'testingsetdata'}
-
+//issue is in Definition and the map function called from FlatList
+//for some reason, it appears to be mapping the elements out of order and twice when you get further down the list
 const createDefinitionRow = (character, i) => <Definition key={i} character={character} />;
 
 class Definition extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     return false;
   }
@@ -350,7 +349,6 @@ class Definition extends Component {
 
 var screen = Dimensions.get('window');
 const NAV_BAR_COLOR = '#F4F4F4';
-
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -380,7 +378,7 @@ var styles = StyleSheet.create({
     // marginVertical: 10,
   },
   character: {
-    fontSize: 80,
+    fontSize: 70,
     textAlign: 'center',
     fontFamily: 'UKaiCN',
     color: '#111111'

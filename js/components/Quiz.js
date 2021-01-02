@@ -8,6 +8,8 @@ TouchableOpacity,
 NativeModules
 } from 'react-native'
 
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 // import CharacterView from 'react-native-character-view-2'
 // const CharacterViewManager = NativeModules.RNCharacterViewManager;
 
@@ -181,7 +183,7 @@ var windowHeight = Dimensions.get('window').height;
 var characterFontSize = 150;
 var englishFontSize = 40;
 if (windowHeight > 600) {
-  characterFontSize = 250;
+  	characterFontSize = 250;
 	englishFontSize = 50;
 	characterChoiceFontSize = 40;
 }
@@ -198,22 +200,22 @@ var styles = StyleSheet.create({
 	},
 	learn: {
 		flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#eee'
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#eee'
 	},
 
 	correctAnswer: {
 		flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    	justifyContent: 'center',
+    	alignItems: 'center',
 		backgroundColor: '#66ff66'
 	},
 
 	wrongAnswer: {
 		flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: '#ff0000'
 	},
 
@@ -224,9 +226,9 @@ var styles = StyleSheet.create({
 		paddingHorizontal: 20
 	},
 	meaning: {
-    fontSize: englishFontSize,
-    textAlign: 'center',
-    color: "#000",
+		fontSize: RFPercentage(5),
+		textAlign: 'center',
+		color: "#000",
 	},
 	// characterView: {
   //   flex: 50,
@@ -236,16 +238,16 @@ var styles = StyleSheet.create({
 	// },
 	character: {
 		fontFamily: "UKaiCN",
-    fontSize: characterFontSize,
-    color: "#000"
+		fontSize: RFPercentage(8),
+		color: "#000"
 	},
 	pinyinView: {
 		flex: 25,
 		justifyContent: 'center'
 	},
 	pinyin: {
-		fontSize: englishFontSize,
-    textAlign: 'center',
+		fontSize: RFPercentage(5),
+    	textAlign: 'center',
 		color: "#000",
 	},
 	buttons: {
@@ -269,16 +271,16 @@ var styles = StyleSheet.create({
 	},
 	buttonText: {
 		lineHeight: 46,
-		fontSize: 30,
+		fontSize: RFPercentage(5),
 		textAlign: 'center',
 		alignSelf: 'center',
 		flex: 1
 	},
 	wordView: {
-    flex: 40,
-    flexDirection: 'row',
-    marginHorizontal: 20,
-    justifyContent: 'center'
+		flex: 40,
+		flexDirection: 'row',
+		marginHorizontal: 20,
+		justifyContent: 'center'
   },
 })
 

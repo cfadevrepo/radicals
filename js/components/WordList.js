@@ -16,6 +16,7 @@ var ProgressBar = require('./ProgressBar');
 var StyleSheet = require('StyleSheet');
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 export default class WordList extends Component {
 
@@ -35,7 +36,8 @@ export default class WordList extends Component {
     }
   }
 
-  _selectCharacter(rowData) {
+  _selectCharacter(rowData) { //data being passed to Learn.js
+    //console.log(this.props.deck.questions)
     this.props.navigator.push({
       title: rowData.character,
       id: 'learn',
@@ -183,7 +185,6 @@ const HEADER_COLOR = '#357EDD';//'#112';
 const NAV_BAR_COLOR = '#F4F4F4';
 
 var windowHeight = Dimensions.get('window').height;
-var infoFontSize = 25;
 var infoPadding = 20;
 var parallaxWindowHeight = 160;
 
@@ -191,8 +192,6 @@ if (windowHeight < 600) {
   // infoFontSize = 20;
   parallaxWindowHeight = 120;
 }
-
-
 
 var styles = StyleSheet.create({
   navBar: {
@@ -216,7 +215,7 @@ var styles = StyleSheet.create({
   infoText: {
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: infoFontSize,
+    fontSize: RFPercentage(4),
     fontStyle: 'italic',
     paddingVertical: infoPadding/2,
     color: "#FFF"
@@ -224,7 +223,7 @@ var styles = StyleSheet.create({
   buttonText: {
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: infoFontSize,
+    fontSize: RFPercentage(4),
     color: "#FFFFFF",
     fontWeight: '600',
     paddingVertical: infoPadding/2
@@ -243,20 +242,20 @@ var styles = StyleSheet.create({
   character: {
     fontFamily: 'UKaiCN',
     flex: 25,
-    fontSize: 50,
+    fontSize: RFPercentage(8),
     color: '#111',
     alignSelf: 'center',
     textAlign: 'left',
   },
   meaning: {
-    fontSize: 25,
+    fontSize: RFPercentage(4),
     flex: 50,
     alignSelf: 'center',
     textAlign: 'center',
     color: '#111'
   },
   pinyin: {
-    fontSize: 25,
+    fontSize: RFPercentage(4),
     flex: 25,
     alignSelf: 'center',
     textAlign: 'right',

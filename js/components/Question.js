@@ -10,6 +10,7 @@ import { StyleSheet,
 
 import NavigationBar from 'react-native-navbar';
 import Sound from 'react-native-sound';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 // Original from Oliver
 import CharacterView from 'react-native-character-view-2'
@@ -295,20 +296,20 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent'
   },
   character: {
-    fontSize: 80,
+    fontSize: RFPercentage(8),
     padding: 5,
     textAlign: 'center',
     fontFamily: 'UKaiCN',
     color: '#111111'
   },
   pinyin: {
-    fontSize: 25,
+    fontSize: RFPercentage(4),
     padding: 5,
     textAlign: 'center',
     color: '#555'
   },
   meaning: {
-    fontSize: 25,
+    fontSize: RFPercentage(4),
     padding: 5,
     textAlign: 'center',
     color: '#555'
@@ -352,7 +353,7 @@ var styles = StyleSheet.create({
   chinese : {
     // flex: 1,
     fontFamily: "UKaiCN",
-    fontSize: CHARACTER_CHOICE_FONT_SIZE,
+    fontSize: RFPercentage(5),
     color: "#000",
     // textAlign: 'center'
   },
@@ -360,7 +361,7 @@ var styles = StyleSheet.create({
   english : {
     // flex: 1,
     flexDirection: 'column',
-    fontSize: CHOICE_FONT_SIZE,
+    fontSize: RFPercentage(4),
     color: "#111",
     textAlign: 'center'
   },

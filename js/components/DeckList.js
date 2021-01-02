@@ -15,6 +15,7 @@ var ProgressBar = require('./ProgressBar');
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationBar from 'react-native-navbar';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 export default class DeckList extends Component {
 
@@ -63,7 +64,7 @@ export default class DeckList extends Component {
 
     var style = {
       color: color,
-      fontSize: 30,
+      fontSize: RFPercentage(5),
     }
 
     var progressText;
@@ -154,12 +155,12 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
-    fontSize: 30,
+    fontSize: RFPercentage(5),
     color: '#000'
   },
   lockedText: {
     flex: 1,
-    fontSize: 30,
+    fontSize: RFPercentage(5),
     color: '#ccc'
   },
   rightButton: {
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'r
   },
   rightButtonText: {
-    fontSize: 40,
+    fontSize: RFPercentage(6),
     fontWeight: '200',
     textAlign: 'center'
   }
