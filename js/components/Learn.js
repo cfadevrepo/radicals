@@ -259,16 +259,6 @@ if ( Platform.OS === 'android') {
             style={styles.navBar} />
           <ProgressBar progress={progress} />
 
-          {/* <ScrollView
-            horizontal={true}
-            contentOffset={1}
-            showsHorizontalScrollIndicator={false}
-            pagingEnabled={true}
-            onMomentumScrollEnd={this.onScrollAnimationEnd}
-            style={styles.scrollView}>
-            {deck.questions.map(createDefinitionRow)}
-          </ScrollView> */}
-
           <FlatList
             horizontal={true}
             initialScrollIndex={this.state.character.rank-1}
@@ -279,12 +269,15 @@ if ( Platform.OS === 'android') {
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             style={styles.scrollView}>
           </FlatList>
-
-          <AndroidCharacterView
-          style={styles.wordView}
-          data={get_svg()}
-          quiz={false}
-          />
+          <TouchableOpacity
+            onPress={this.onScrollAnimationEnd}>
+              <AndroidCharacterView
+              style={styles.wordView}
+              data={get_svg()}
+              quiz={false}
+              //onPress={this.onScrollAnimationEnd}
+              />
+          </TouchableOpacity>
       </View>
     )
   } else {
@@ -297,16 +290,6 @@ if ( Platform.OS === 'android') {
             tintColor={'#f5f5f5'}
             style={styles.navBar} />
           <ProgressBar progress={progress} />
-
-          {/* <ScrollView
-            horizontal={true}
-            contentOffset={3}
-            showsHorizontalScrollIndicator={false}
-            pagingEnabled={true}
-            onMomentumScrollEnd={this.onScrollAnimationEnd}
-            style={styles.scrollView}>
-            {deck.questions.map(createDefinitionRow)}
-          </ScrollView> */}
 
           <FlatList
             horizontal={true}
@@ -324,7 +307,9 @@ if ( Platform.OS === 'android') {
               character={character}
               ref="characterView"
               backgroundColor="transparent"
-              style={{flex: 1}} />
+              style={{flex: 1}} 
+              //onPress={this.animateStrokes} camryn
+            />
           </View>
 
       </View>
@@ -404,7 +389,7 @@ var styles = StyleSheet.create({
     // marginVertical: 10,
   },
   character: {
-    fontSize: 80,
+    fontSize: 70,
     textAlign: 'center',
     fontFamily: 'UKaiCN',
     color: '#111111'

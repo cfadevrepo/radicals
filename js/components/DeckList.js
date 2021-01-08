@@ -89,7 +89,6 @@ export default class DeckList extends Component {
     //   )
 
     // Make a cell class
-    //camryn line 103
     //font isnt working on ios, print font names and see if it's right
     return (
       <TouchableHighlight
@@ -147,11 +146,6 @@ export default class DeckList extends Component {
             style: 'default',
             tintColor: NAV_BAR_COLOR
           }} />
-        {/* <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this._renderRow}
-          showsVerticalScrollIndicator={false}
-        /> */}
         <FlatList
           data = {this.state.dataSource}
           renderItem = {this._renderRow}
