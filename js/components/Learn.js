@@ -61,15 +61,13 @@ class Learn extends Component {
     this.onScrollAnimationEnd = this.onScrollAnimationEnd.bind(this);
     const { rawPinyin, tone } = this.props.character;
     this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE);
-    console.log(this.sound)
     this.state = { character: this.props.character, playing: false, deckData: this.props.deck.questions.map(createDefinitionRow) };
   }
 
   componentDidMount() {
     //console.log("mounted");
     setTimeout(this._playRecording, 400);
-    console.log("recording played?");
-    console.log(this.state.character)
+    //console.log("recording played?");
     setTimeout(() => { this._animateStrokes() }, 400);
     this._isMounted = true; //sort of an antipattern
   }
@@ -89,6 +87,7 @@ class Learn extends Component {
     if (this.state.playing) return
     this.setState({ playing: true })
     this.sound.play((success) => {
+      //console.log("SOUND FILE: ", this.sound)
       if (this._isMounted)
         this.setState({ playing: false })
     });
@@ -106,15 +105,13 @@ class Learn extends Component {
     }, () => {
       setTimeout(() => { this._animateStrokes() }, 100);
       const { rawPinyin, tone } = this.state.character;
-      console.log("HERE", rawPinyin, tone)
       this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE, (error) => {
-        console.log(this.sound)
+        //console.log("SOUND FILE: ", this.sound)
         if (error) {
           console.log('failed to load the sound', error);
         } else { // loaded successfully
           setTimeout(this._playRecording, 100);
           this._isMounted = true; //sort of an antipattern
-          console.log("Sound loaded")
         }
       });
     })

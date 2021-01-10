@@ -111,6 +111,20 @@ store.get('decks').then((decks) => {
       DeckData["Radicals"].questions[14].rawPinyin = 'shi';
   }
 
+  if (DeckData["Radicals"] &&
+    DeckData["Radicals"].questions &&
+    DeckData["Radicals"].questions[4] &&
+    DeckData["Radicals"].questions[4].character == '女') {
+      DeckData["Radicals"].questions[4].rawPinyin = 'nv';
+  }
+
+  if (DeckData["Objects"] &&
+    DeckData["Objects"].questions &&
+    DeckData["Objects"].questions[2] &&
+    DeckData["Objects"].questions[2].character == '刀') {
+      DeckData["Objects"].questions[2].pinyin = 'dāo';
+  }
+
   if (DeckData["Objects"] &&
     DeckData["Objects"].questions &&
     DeckData["Objects"].questions[2] &&
