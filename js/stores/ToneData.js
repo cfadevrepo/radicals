@@ -44,7 +44,7 @@ var ToneData = {
 "chuang": ["chuāng", "chuáng", "chuǎng", "chuàng", "chuang"],
 "chui": ["chuī", "chuí", "chuǐ", "chuì", "chui"],
 "chun": ["chūn", "chún", "chǔn", "chùn", "chun"],
-"chuo": ["chūo", "chúo", "chǔo", "chùo", "chuo"],
+"chuo": ["chuō", "chuó", "chuǒ", "chuò", "chuo"],
 "ci": ["cī", "cí", "cǐ", "cì", "ci"],
 "cong": ["cōng", "cóng", "cǒng", "còng", "cong"],
 "cou": ["cōu", "cóu", "cǒu", "còu", "cou"],

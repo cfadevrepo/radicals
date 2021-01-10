@@ -207,8 +207,8 @@ var styles = StyleSheet.create({
 
 	correctAnswer: {
 		flex: 1,
-    	justifyContent: 'center',
-    	alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
 		backgroundColor: '#66ff66'
 	},
 
@@ -226,7 +226,8 @@ var styles = StyleSheet.create({
 		paddingHorizontal: 20
 	},
 	meaning: {
-		fontSize: RFPercentage(5),
+		fontSize: RFPercentage(3),
+		fontFamily: 'Roboto',
 		textAlign: 'center',
 		color: "#000",
 	},
@@ -238,7 +239,7 @@ var styles = StyleSheet.create({
 	// },
 	character: {
 		fontFamily: "UKaiCN",
-		fontSize: RFPercentage(8),
+		fontSize: RFPercentage(6),
 		color: "#000"
 	},
 	pinyinView: {
@@ -246,8 +247,9 @@ var styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	pinyin: {
-		fontSize: RFPercentage(5),
-    	textAlign: 'center',
+		fontSize: RFPercentage(3),
+		fontFamily: 'Roboto',
+    textAlign: 'center',
 		color: "#000",
 	},
 	buttons: {
@@ -271,7 +273,8 @@ var styles = StyleSheet.create({
 	},
 	buttonText: {
 		lineHeight: 46,
-		fontSize: RFPercentage(5),
+		fontSize: RFPercentage(3),
+		fontFamily: 'Roboto',
 		textAlign: 'center',
 		alignSelf: 'center',
 		flex: 1

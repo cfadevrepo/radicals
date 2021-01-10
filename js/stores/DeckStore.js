@@ -96,6 +96,28 @@ store.get('decks').then((decks) => {
     DeckData["Actions"].questions[8].character == '攴') {
       DeckData["Actions"].questions[8].tone = 1;
   }
+  //new
+  if (DeckData["Objects"] &&
+    DeckData["Objects"].questions &&
+    DeckData["Objects"].questions[27] &&
+    DeckData["Objects"].questions[27].character == '龠') {
+      DeckData["Objects"].questions[27].pinyin = 'yuè';
+  }
+
+  if (DeckData["Radicals"] &&
+    DeckData["Radicals"].questions &&
+    DeckData["Radicals"].questions[14] &&
+    DeckData["Radicals"].questions[14].character == '石') {
+      DeckData["Radicals"].questions[14].rawPinyin = 'shi';
+  }
+
+  if (DeckData["Objects"] &&
+    DeckData["Objects"].questions &&
+    DeckData["Objects"].questions[2] &&
+    DeckData["Objects"].questions[2].character == '刀') {
+      DeckData["Objects"].questions[2].pinyin = 'dāo';
+  }
+  //end new
 
   if (DeckData["Spring Festival"]) {
     delete DeckData["Spring Festival"];

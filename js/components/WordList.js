@@ -16,7 +16,7 @@ var ProgressBar = require('./ProgressBar');
 var StyleSheet = require('StyleSheet');
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 export default class WordList extends Component {
 
@@ -210,23 +210,27 @@ var styles = StyleSheet.create({
     borderBottomColor: '#EEE',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    fontSize: RFPercentage(4),
+    fontFamily: 'Roboto'
   },
   infoText: {
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
     fontStyle: 'italic',
     paddingVertical: infoPadding/2,
-    color: "#FFF"
+    color: "#FFF",
+    fontFamily: 'Roboto'
   },
   buttonText: {
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
     color: "#FFFFFF",
     fontWeight: '600',
-    paddingVertical: infoPadding/2
+    paddingVertical: infoPadding/2,
+    fontFamily: 'Roboto'
   },
   row: {
     flex: 1,
@@ -242,24 +246,26 @@ var styles = StyleSheet.create({
   character: {
     fontFamily: 'UKaiCN',
     flex: 25,
-    fontSize: RFPercentage(8),
+    fontSize: RFPercentage(6),
     color: '#111',
     alignSelf: 'center',
     textAlign: 'left',
   },
   meaning: {
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
     flex: 50,
     alignSelf: 'center',
     textAlign: 'center',
-    color: '#111'
+    color: '#111',
+    fontFamily: 'Roboto'
   },
   pinyin: {
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
     flex: 25,
     alignSelf: 'center',
     textAlign: 'right',
-    color: '#111'
+    color: '#111',
+    fontFamily: 'Roboto'
   },
   stickySection: {
     backgroundColor: HEADER_COLOR,

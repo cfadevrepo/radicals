@@ -36,6 +36,10 @@ class Question extends Component {
     this.state = { character: this.props.question.character, selected: null };
   }
 
+  componentDidMount() {
+    console.log("HERE!!!!!!!!!!!!!!", this.props.question)
+  }
+
   componentWillReceiveProps(nextProps) {
     const { rawPinyin, tone } = nextProps.question.character;
     this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE);
@@ -296,20 +300,22 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent'
   },
   character: {
-    fontSize: RFPercentage(8),
+    fontSize: RFPercentage(6),
     padding: 5,
     textAlign: 'center',
     fontFamily: 'UKaiCN',
     color: '#111111'
   },
   pinyin: {
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
+    fontFamily: 'Roboto',
     padding: 5,
     textAlign: 'center',
     color: '#555'
   },
   meaning: {
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
+    fontFamily: 'Roboto',
     padding: 5,
     textAlign: 'center',
     color: '#555'
@@ -353,7 +359,7 @@ var styles = StyleSheet.create({
   chinese : {
     // flex: 1,
     fontFamily: "UKaiCN",
-    fontSize: RFPercentage(5),
+    fontSize: RFPercentage(3),
     color: "#000",
     // textAlign: 'center'
   },
@@ -361,7 +367,8 @@ var styles = StyleSheet.create({
   english : {
     // flex: 1,
     flexDirection: 'column',
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(3),
+    fontFamily: 'Roboto',
     color: "#111",
     textAlign: 'center'
   },

@@ -36,7 +36,7 @@ import { StyleSheet,
 
 import NavigationBar from 'react-native-navbar';
 import Sound from 'react-native-sound';
-
+import { RFPercentage } from "react-native-responsive-fontsize";
 import { WebView } from 'react-native-webview';
 
 // Original from Oliver
@@ -69,6 +69,7 @@ class Learn extends Component {
     //console.log("mounted");
     setTimeout(this._playRecording, 400);
     console.log("recording played?");
+    console.log(this.state.character)
     setTimeout(() => { this._animateStrokes() }, 400);
     this._isMounted = true; //sort of an antipattern
   }
@@ -97,19 +98,23 @@ class Learn extends Component {
     e.stopPropagation();
     const { initialScrollIndex, contentOffset, layoutMeasurement } = e.nativeEvent;
     const i = Math.max(0, Math.floor(contentOffset.x/layoutMeasurement.width));
-    if (this.props.deck.questions[i] == this.state.character)
+    if (this.props.deck.questions[i] == this.state.character){
       return;
+    }
     this.setState({
       character: this.props.deck.questions[i]
     }, () => {
       setTimeout(() => { this._animateStrokes() }, 100);
       const { rawPinyin, tone } = this.state.character;
+      console.log("HERE", rawPinyin, tone)
       this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE, (error) => {
+        console.log(this.sound)
         if (error) {
           console.log('failed to load the sound', error);
         } else { // loaded successfully
           setTimeout(this._playRecording, 100);
           this._isMounted = true; //sort of an antipattern
+          console.log("Sound loaded")
         }
       });
     })
@@ -272,7 +277,8 @@ if (Platform.OS === 'android') {
             maxToRenderPerBatch={this.state.deckData.length}
             onMomentumScrollEnd={this.onScrollAnimationEnd}
             pagingEnabled={true}
-            decelerationRate={0}            
+            decelerationRate={0}  
+            onEndReachedThreshold={0}          
             >
           </FlatList>
 
@@ -378,19 +384,21 @@ var styles = StyleSheet.create({
     // marginVertical: 10,
   },
   character: {
-    fontSize: 70,
+    fontSize: RFPercentage(5),
     textAlign: 'center',
     fontFamily: 'UKaiCN',
     color: '#111111'
   },
   pinyin: {
-    fontSize: 25,
+    fontSize: RFPercentage(3),
+    fontFamily: 'Roboto',
     padding: 10,
     textAlign: 'center',
     color: '#555'
   },
   meaning: {
-    fontSize: 25,
+    fontSize: RFPercentage(3),
+    fontFamily: 'Roboto',
     textAlign: 'center',
     color: '#555'
   },
