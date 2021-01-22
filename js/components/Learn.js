@@ -1,26 +1,26 @@
-import Svg, {
-  Circle,
-  Ellipse,
-  G,
-  TSpan,
-  TextPath,
-  Path,
-  Polygon,
-  Polyline,
-  Line,
-  Rect,
-  Use,
-  Image,
-  Symbol,
-  Defs,
-  LinearGradient,
-  RadialGradient,
-  Stop,
-  ClipPath,
-  Pattern,
-  Mask,
-  SvgXML,
-} from 'react-native-svg';
+// import Svg, {
+//   Circle,
+//   Ellipse,
+//   G,
+//   TSpan,
+//   TextPath,
+//   Path,
+//   Polygon,
+//   Polyline,
+//   Line,
+//   Rect,
+//   Use,
+//   Image,
+//   Symbol,
+//   Defs,
+//   LinearGradient,
+//   RadialGradient,
+//   Stop,
+//   ClipPath,
+//   Pattern,
+//   Mask,
+//   SvgXML,
+// } from 'react-native-svg';
 
 import React, { Component } from 'react';
 import { StyleSheet,
@@ -95,11 +95,16 @@ class Learn extends Component {
 
   onScrollAnimationEnd(e) {
     e.stopPropagation();
-    const { initialScrollIndex, contentOffset, layoutMeasurement } = e.nativeEvent;
-    const i = Math.max(0, Math.floor(contentOffset.x/layoutMeasurement.width));
-    if (this.props.deck.questions[i] == this.state.character){
+    const { contentOffset, layoutMeasurement } = e.nativeEvent;
+    const i = Math.max(0, Math.round(contentOffset.x/layoutMeasurement.width));
+    //const i = this.state.character.rank-1
+    //console.log(e.nativeEvent)
+    // console.log("Rank: ", this.state.character.rank)
+    // console.log("i: ", i)
+    if (this.props.deck.questions[i] == this.state.character && this.state.character.rank !== 25){
       return;
     }
+
     this.setState({
       character: this.props.deck.questions[i]
     }, () => {
@@ -108,7 +113,7 @@ class Learn extends Component {
       this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE, (error) => {
         //console.log("SOUND FILE: ", this.sound)
         if (error) {
-          console.log('failed to load the sound', error);
+          //console.log('failed to load the sound', error);
         } else { // loaded successfully
           setTimeout(this._playRecording, 100);
           this._isMounted = true; //sort of an antipattern
