@@ -96,7 +96,7 @@ class Learn extends Component {
   onScrollAnimationEnd(e) {
     e.stopPropagation();
     const { contentOffset, layoutMeasurement } = e.nativeEvent;
-    const i = Math.max(0, Math.round(contentOffset.x/layoutMeasurement.width));
+    const i = Math.max(0, Math.round(contentOffset.x/layoutMeasurement.width)); //changed from floor to round
     //const i = this.state.character.rank-1
     //console.log(e.nativeEvent)
     // console.log("Rank: ", this.state.character.rank)

@@ -36,10 +36,6 @@ class Question extends Component {
     this.state = { character: this.props.question.character, selected: null };
   }
 
-  componentDidMount() {
-    console.log("HERE!!!!!!!!!!!!!!", this.props.question)
-  }
-
   componentWillReceiveProps(nextProps) {
     const { rawPinyin, tone } = nextProps.question.character;
     this.sound = new Sound(rawPinyin+tone+'.mp3', Sound.MAIN_BUNDLE);
